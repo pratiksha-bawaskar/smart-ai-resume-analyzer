@@ -1,0 +1,245 @@
+/* ===== GLOBAL ===== */
+
+body {
+  background: #f1f5f9;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== LAYOUT ===== */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===== SIDEBAR ===== */
+
+.dashboard {
+  width: 250px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+}
+
+.dashboard h2 {
+  margin-bottom: 20px;
+}
+
+.dashboard li {
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: #f8fafc;
+}
+
+/* ===== CARD ===== */
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== INPUT ===== */
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* ===== BUTTON ===== */
+
+button {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.danger {
+  background: red;
+  margin-left: 10px;
+}
+
+/* ===== HEADINGS ===== */
+
+h2, h3 {
+  color: #1e293b;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #4F46E5, #06B6D4);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ===== RANKING TABLE ===== */
+
+.ranking-card {
+  margin-top: 20px;
+}
+
+.ranking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.ranking-table th {
+  background: linear-gradient(45deg, #4F46E5, #06B6D4);
+  color: white;
+  padding: 12px;
+}
+
+.ranking-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ranking-table tr:hover {
+  background: #f1f5f9;
+  transform: scale(1.01);
+  transition: 0.2s;
+}
+
+.no-data {
+  text-align: center;
+  padding: 15px;
+}
+
+/* ===== SCORE BAR ===== */
+
+.score-bar {
+  width: 100px;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.score-fill {
+  height: 8px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  border-radius: 10px;
+}
+
+.high { color: green; font-weight: bold; }
+.medium { color: orange; }
+.low { color: red; }
+
+/* ===== LOADING ===== */
+
+.loading {
+  margin-top: 10px;
+  color: #555;
+}
+
+/* ===== CHATBOT (MODAL ONLY) ===== */
+
+.chat-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.chat-modal {
+  width: 400px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.chat-header {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border-radius: 12px 12px 0 0;
+  font-weight: bold;
+}
+
+.chat-body {
+  padding: 15px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.chat-body p {
+  margin-bottom: 8px;
+}
+
+.chat-body button {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #2563eb;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .chat-modal {
+    width: 90%;
+  }
+}
+tr:first-child {
+  border-left: 5px solid #22c55e;
+}
