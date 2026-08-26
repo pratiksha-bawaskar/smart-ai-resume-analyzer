@@ -1,53 +1,103 @@
 import React, { useState } from "react";
 import Ranking from "./Ranking";
-import AddUser from "./AddUser";
 import AddResume from "./AddResume";
+import AddJob from "./AddJob";
 import ChatbotComponent from "./ChatbotComponent";
+import { motion } from "framer-motion";
+import "./Dashboard.css";
+import {
+  FaRobot,
+  FaChartLine
+} from "react-icons/fa";
 
-function Dashboard() {
-
-  const [userId, setUserId] = useState("");
-  const [userName, setUserName] = useState("");
+function Dashboard({ onLogout }) {
   const [showChat, setShowChat] = useState(false);
+  const [refreshRanking, setRefreshRanking] = useState(false);
 
   return (
+    <div className="dashboard-page">
 
-    <div style={mainContent}>
+      <div className="dashboard-container">
 
-      <div style={container}>
-
-        <h1 className="gradient-text">
-          🤖 Smart AI Resume Analyzer 🚀
-        </h1>
-
-        <p style={{
-          color: "#64748b",
-          fontSize: "14px",
-          marginTop: "-8px"
-        }}>
-          🚀 Built by Pratiksha Bawaskar
-        </p>
-
-        {/* ✅ OPEN CHAT BUTTON */}
-        <button 
-          onClick={() => setShowChat(true)} 
-          style={{ marginBottom: "15px" }}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="hero-card"
         >
-          🤖 Open AI Assistant
+          <h1 className="hero-title">
+            🧠 TalentLens AI
+          </h1>
+
+          <h3 className="hero-subtitle">
+            Welcome Recruiter 👋
+          </h3>
+
+          <p>
+            AI Powered Intelligent Recruitment Platform
+          </p>
+
+          <div className="hero-tags">
+            <span>✅ Resume Parsing</span>
+            <span>🎯 ATS Scoring</span>
+            <span>🤖 AI Matching</span>
+            <span>🏆 Candidate Ranking</span>
+            <span>📊 Analytics</span>
+          </div>
+        </motion.div>
+
+        {/* OPEN CHAT BUTTON */}
+        <button
+          className="copilot-btn"
+          onClick={() => setShowChat(true)}
+        >
+          <FaRobot className="btn-icon" />
+          TalentLens Copilot
         </button>
 
-        <div style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
-          <AddUser setUserId={setUserId} setUserName={setUserName} />
-          <AddResume userId={userId} userName={userName} />
+        <div className="dashboard-grid">
+
+          <AddJob />
+
+          <AddResume
+            onUploadSuccess={() =>
+              setRefreshRanking(prev => !prev)
+            }
+          />
+
         </div>
 
-        <Ranking />
+        {/* RANKING */}
+        <Ranking
+          refreshRanking={refreshRanking}
+          onLogout={onLogout}
+        />
+
+        {/* FOOTER - TABLE KE BAAD */}
+        <div className="footer">
+
+          <h3>
+            <FaChartLine className="footer-icon" />
+            TalentLens AI v1.0
+          </h3>
+
+          <p>
+            Java • Spring Boot • React • MySQL • REST APIs • Microservices
+          </p>
+
+          <p>
+            © 2026 Pratiksha Bawaskar
+          </p>
+
+        </div>
 
       </div>
 
-      {/* ✅ CHATBOT MODAL */}
+      {/* CHATBOT MODAL */}
       {showChat && (
-        <ChatbotComponent onClose={() => setShowChat(false)} />
+        <ChatbotComponent
+          onClose={() => setShowChat(false)}
+        />
       )}
 
     </div>
@@ -55,17 +105,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-/* 🎨 STYLES */
-
-const mainContent = {
-  flex: 1,
-  padding: "30px",
-  display: "flex",
-  justifyContent: "center"
-};
-
-const container = {
-  width: "100%",
-  maxWidth: "1000px"
-};

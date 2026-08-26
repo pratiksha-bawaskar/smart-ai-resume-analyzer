@@ -5,19 +5,20 @@ function AddUser({ setUserId, setUserName }) {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleCreateUser = async () => {
 
-    if (!name || !email) {
-      alert("Please enter name and email");
+    if (!name || !email || !password) {
+      alert("Please enter name, email and password");
       return;
     }
 
-    // ✅ FIXED USER OBJECT
     const user = {
       name: name,
       email: email,
-      skills: "" // 🔥 IMPORTANT ADD
+      password: password,
+      skills: ""
     };
 
     try {
@@ -28,9 +29,9 @@ function AddUser({ setUserId, setUserName }) {
       setUserId(data.id);
       setUserName(name);
 
-      // ✅ optional: clear inputs after success
       setName("");
       setEmail("");
+      setPassword("");
 
     } catch (error) {
       console.error("CREATE USER ERROR:", error);
@@ -39,7 +40,7 @@ function AddUser({ setUserId, setUserName }) {
   };
 
   return (
-    <div className="card">
+    <div>
 
       <h2>Create User</h2>
 
@@ -53,6 +54,13 @@ function AddUser({ setUserId, setUserName }) {
         placeholder="Enter Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <input
+        type="password"
+        placeholder="Enter Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
 
       <button onClick={handleCreateUser}>

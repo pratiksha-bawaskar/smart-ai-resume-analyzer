@@ -1,0 +1,263 @@
+/* ===== RANKING TABLE ===== */
+
+.ranking-card {
+  margin-top: 20px;
+}
+
+.ranking-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.ranking-table th{
+background:linear-gradient(90deg,#2563eb,#06b6d4);
+padding:14px;
+font-size:15px;
+letter-spacing:.5px;
+}
+
+.ranking-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ranking-table tbody tr:hover{
+background:#eff6ff;
+transform:scale(1.01);
+transition:.25s;
+cursor:pointer;
+}
+
+.no-data {
+  text-align: center;
+  padding: 15px;
+}
+
+/* ===== SCORE BAR ===== */
+
+.score-bar{
+width:140px;
+height:10px;
+background:#e5e7eb;
+border-radius:30px;
+overflow:hidden;
+}
+
+.score-fill {
+  height: 8px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  border-radius: 10px;
+}
+
+/* Status badge */
+
+.status-badge{
+
+display:inline-block;
+
+padding:8px 18px;
+
+border-radius:25px;
+
+font-weight:bold;
+
+color:white;
+
+font-size:14px;
+
+letter-spacing:.5px;
+
+}
+
+.analytics-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:16px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+text-align:center;
+
+transition:.3s;
+
+cursor:pointer;
+
+border:1px solid #e5e7eb;
+
+}
+
+.analytics-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 18px 35px rgba(37,99,235,.15);
+
+}
+
+.analytics-card h2{
+
+font-size:35px;
+
+margin:0;
+
+}
+
+.analytics-card h3{
+
+font-size:32px;
+
+color:#2563eb;
+
+margin:8px 0;
+
+}
+
+.analytics-card p{
+
+color:#64748b;
+
+font-weight:600;
+
+margin:0;
+
+}
+
+
+/* =====CANDIDATE DETAILS====== */
+
+.candidate-card{
+
+background:white;
+
+padding:30px;
+
+margin-top:25px;
+
+border-radius:18px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+animation:fadeIn .5s ease;
+
+}
+
+/* AI Resume Analysis */
+
+.ai-analysis-card{
+
+background:linear-gradient(135deg,#eef7ff,#f8fffd);
+
+border-left:6px solid #2563eb;
+
+padding:25px;
+
+border-radius:18px;
+
+margin-bottom:25px;
+
+box-shadow:0 12px 25px rgba(37,99,235,.12);
+
+}
+
+.ai-analysis-card h2{
+
+margin-top:0;
+
+margin-bottom:20px;
+
+color:#2563eb;
+
+}
+
+.ai-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:18px;
+
+}
+
+.ai-grid div{
+
+background:white;
+
+padding:18px;
+
+border-radius:14px;
+
+text-align:center;
+
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.ai-grid div:hover{
+
+transform:translateY(-5px);
+
+}
+
+.ai-grid h4{
+
+margin:0;
+
+color:#64748b;
+
+font-size:15px;
+
+}
+
+.ai-grid p{
+
+margin-top:10px;
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#2563eb;
+
+}
+
+tr:first-child {
+  border-left: 5px solid #22c55e;
+}
+
+.logout-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.logout-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
