@@ -22,7 +22,7 @@ public class RankingService {
     // ✅ THIS SHOULD BE HERE (NO @GetMapping)
     public List<Map<String, Object>> getRankingFromResumeService() {
 
-        String url = "http://localhost:8082/resumes/ranking";
+        String url = "https://resume-service-gf33.onrender.com/resumes/ranking";
 
         List<Map<String, Object>> data =
             restTemplate.getForObject(url, List.class);
