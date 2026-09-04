@@ -63,7 +63,7 @@ public class ResumeController {
                     file.getBytes()
             );
 
-            // ✅ TEXT EXTRACTION
+         // ✅ TEXT EXTRACTION
 
             String text = "";
 
@@ -79,9 +79,15 @@ public class ResumeController {
 
                 document.close();
 
+                if (text == null || text.trim().isEmpty()) {
+                    return "Error: No readable text found in PDF";
+                }
+
             } catch (Exception e) {
 
-                text = new String(file.getBytes());
+                e.printStackTrace();
+
+                return "Error: Unable to extract text from PDF";
             }
 
             // ✅ EXTRACT EMAIL & PHONE
