@@ -17,7 +17,8 @@ public class Resume {
 
  private int experience;
  
- private Long jobId;
+ @SuppressWarnings("unused")
+private Long jobId;
 
  private String skills;
 
@@ -33,7 +34,8 @@ public class Resume {
  
  private String status = "APPLIED";
 
- @Column(length = 10000)
+ @Lob
+ @Column(columnDefinition = "LONGTEXT")
  private String extractedText;
 
  public Resume(String email, String phone, String extractedText) {
