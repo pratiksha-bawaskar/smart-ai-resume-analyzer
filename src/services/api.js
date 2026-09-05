@@ -1,13 +1,12 @@
 import axios from "axios";
 
-// ✅ Separate services
-const USER_SERVICE = "http://localhost:8081";
-const RESUME_SERVICE = "http://localhost:8082";
+// ✅ Production API Gateway
+const API_GATEWAY = "https://smart-ai-api-gateway.onrender.com";
 
 // ✅ CREATE USER
 export const createUser = async (user) => {
   try {
-    const response = await axios.post(`${USER_SERVICE}/users`, user);
+    const response = await axios.post(`${API_GATEWAY}/users`, user);
     return response.data;
   } catch (error) {
     console.error("CREATE USER ERROR:", error.response?.data || error.message);
@@ -19,7 +18,7 @@ export const createUser = async (user) => {
 export const uploadResume = async (formData) => {
   try {
     const response = await axios.post(
-      `${RESUME_SERVICE}/resumes/upload`,
+      `${API_GATEWAY}/resumes/upload`,
       formData,
       {
         headers: {
@@ -32,7 +31,6 @@ export const uploadResume = async (formData) => {
     return response.data;
 
   } catch (error) {
-
     console.log("============== UPLOAD ERROR ==============");
     console.log("Status :", error.response?.status);
     console.log("Data   :", error.response?.data);
@@ -49,7 +47,7 @@ export const uploadResume = async (formData) => {
 // ✅ GET RANKING
 export const getRanking = async () => {
   try {
-    const response = await axios.get(`${RESUME_SERVICE}/resumes/ranking`);
+    const response = await axios.get(`${API_GATEWAY}/resumes/ranking`);
     return response.data;
   } catch (error) {
     console.error("RANKING ERROR:", error.response?.data || error.message);
@@ -60,7 +58,7 @@ export const getRanking = async () => {
 // ✅ DELETE DATA
 export const deleteAllData = async () => {
   try {
-    const response = await axios.delete(`${RESUME_SERVICE}/resumes/deleteAll`);
+    const response = await axios.delete(`${API_GATEWAY}/resumes/deleteAll`);
     return response.data;
   } catch (error) {
     console.error("DELETE ERROR:", error.response?.data || error.message);
@@ -71,7 +69,7 @@ export const deleteAllData = async () => {
 // ✅ GET SCORE
 export const getResumeScore = async () => {
   try {
-    const response = await axios.get(`${RESUME_SERVICE}/resumes/score`);
+    const response = await axios.get(`${API_GATEWAY}/resumes/score`);
     return response.data;
   } catch (error) {
     console.error("SCORE ERROR:", error.response?.data || error.message);
@@ -82,7 +80,7 @@ export const getResumeScore = async () => {
 // ✅ GET SUGGESTION
 export const getResumeSuggestion = async () => {
   try {
-    const response = await axios.get(`${RESUME_SERVICE}/resumes/improve`);
+    const response = await axios.get(`${API_GATEWAY}/resumes/improve`);
     return response.data;
   } catch (error) {
     console.error("SUGGESTION ERROR:", error.response?.data || error.message);
@@ -94,7 +92,7 @@ export const getResumeSuggestion = async () => {
 export const downloadReportAPI = async () => {
   try {
     const response = await fetch(
-      `${RESUME_SERVICE}/resumes/download-report`
+      `${API_GATEWAY}/resumes/download-report`
     );
     return await response.blob();
   } catch (error) {
@@ -106,7 +104,7 @@ export const downloadReportAPI = async () => {
 // ✅ Candidate Details
 export const getCandidateDetails = async (id) => {
   const response = await axios.get(
-    `${RESUME_SERVICE}/resumes/candidate/${id}`
+    `${API_GATEWAY}/resumes/candidate/${id}`
   );
   return response.data;
 };
@@ -114,7 +112,7 @@ export const getCandidateDetails = async (id) => {
 // ✅ UPDATE STATUS
 export const updateCandidateStatus = async (id, status) => {
   const response = await axios.put(
-    `${RESUME_SERVICE}/resumes/${id}/status?status=${status}`
+    `${API_GATEWAY}/resumes/${id}/status?status=${status}`
   );
 
   return response.data;
@@ -124,12 +122,11 @@ export const updateCandidateStatus = async (id, status) => {
 export const loginUser = async (credentials) => {
   try {
     const response = await axios.post(
-      `${USER_SERVICE}/auth/login`,
+      `${API_GATEWAY}/auth/login`,
       credentials
     );
 
     console.log("LOGIN SUCCESS:", response.data);
-
     return response.data;
 
   } catch (error) {
@@ -137,7 +134,6 @@ export const loginUser = async (credentials) => {
       "LOGIN ERROR:",
       error.response?.data || error.message
     );
-
     throw error;
   }
 };

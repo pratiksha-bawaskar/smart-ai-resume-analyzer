@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Ranking from "./Ranking";
 import AddResume from "./AddResume";
-import AddJob from "./AddJob";
 import ChatbotComponent from "./ChatbotComponent";
 import { motion } from "framer-motion";
 import "./Dashboard.css";
@@ -56,8 +55,6 @@ function Dashboard({ onLogout }) {
         </button>
 
         <div className="dashboard-grid">
-
-          <AddJob />
 
           <AddResume
             onUploadSuccess={() =>
