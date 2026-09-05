@@ -65,30 +65,26 @@ public class ResumeController {
 
          // ✅ TEXT EXTRACTION
 
-            String text = "";
+String text = "";
 
-            try {
+try (PDDocument document =
+        PDDocument.load(new File(filePath))) {
 
-                PDDocument document =
-                        PDDocument.load(file.getInputStream());
+    PDFTextStripper stripper =
+            new PDFTextStripper();
 
-                PDFTextStripper stripper =
-                        new PDFTextStripper();
+    text = stripper.getText(document);
 
-                text = stripper.getText(document);
+    if (text == null || text.trim().isEmpty()) {
+        return "Error: No readable text found in PDF";
+    }
 
-                document.close();
+} catch (Exception e) {
 
-                if (text == null || text.trim().isEmpty()) {
-                    return "Error: No readable text found in PDF";
-                }
+    e.printStackTrace();
 
-            } catch (Exception e) {
-
-                e.printStackTrace();
-
-                return "Error: Unable to extract text from PDF";
-            }
+    return "Error: Unable to extract text from PDF";
+}
 
             // ✅ EXTRACT EMAIL & PHONE
 
