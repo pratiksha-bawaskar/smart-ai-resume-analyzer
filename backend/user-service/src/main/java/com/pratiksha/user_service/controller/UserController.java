@@ -9,7 +9,6 @@ import com.pratiksha.user_service.entity.User;
 import com.pratiksha.user_service.repository.UserRepository;
 import com.pratiksha.user_service.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/users")
 public class UserController {
