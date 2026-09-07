@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { createUser } from "../services/api";
 
 function AddUser({ setUserId, setUserName }) {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleCreateUser = async () => {
-
     if (!name || !email || !password) {
       alert("Please enter name, email and password");
       return;
@@ -26,13 +24,19 @@ function AddUser({ setUserId, setUserName }) {
 
       alert("User Created: " + name + " 🎉");
 
+      // ✅ set state
       setUserId(data.id);
       setUserName(name);
 
+      // ✅ persist in localStorage
+      localStorage.setItem("userId", data.id);
+    localStorage.setItem("userName", name);
+      localStorage.setItem("isLoggedIn", "true");
+
+      // clear form
       setName("");
       setEmail("");
       setPassword("");
-
     } catch (error) {
       console.error("CREATE USER ERROR:", error);
       alert("Error creating user");
@@ -41,7 +45,6 @@ function AddUser({ setUserId, setUserName }) {
 
   return (
     <div>
-
       <h2>Create User</h2>
 
       <input
@@ -66,7 +69,6 @@ function AddUser({ setUserId, setUserName }) {
       <button onClick={handleCreateUser}>
         Create User
       </button>
-
     </div>
   );
 }

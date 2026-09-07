@@ -35,10 +35,12 @@ public class AuthController {
         );
 
         LoginResponse response =
-                new LoginResponse(
-                        token,
-                        "Login successful"
-                );
+        new LoginResponse(
+                token,
+                "Login successful",
+                user.getId(),
+                user.getName()
+        );
 
         return ResponseEntity.ok(response);
     }
