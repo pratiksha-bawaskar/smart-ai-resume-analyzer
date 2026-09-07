@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { uploadResume } from "../services/api";
 import "./AddResume.css";
 
-function AddResume({ onUploadSuccess }) {
+function AddResume({ onUploadSuccess, userId, userName }) {
 
 const [file, setFile] = useState([]);
 const [loading, setLoading] = useState(false);
@@ -47,11 +47,12 @@ try {
 
   for (let i = 0; i < file.length; i++) {
 
-    const formData = new FormData();
-    formData.append("file", file[i]);
+const formData = new FormData();
+formData.append("file", file[i]);
+formData.append("userId", String(userId));
+formData.append("name", userName);
 
-    const response = await uploadResume(formData);
-
+const response = await uploadResume(formData);
     console.log(response);
 
     // setCandidate(response);

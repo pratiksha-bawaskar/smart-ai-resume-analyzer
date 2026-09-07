@@ -7,6 +7,8 @@ import AddUser from "./components/AddUser";
 
 function App() {
 
+  const [userId, setUserId] = useState(null);
+  const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
@@ -32,9 +34,9 @@ function App() {
         <div className="create-user-card">
 
           <AddUser
-            setUserId={() => {}}
-            setUserName={() => {}}
-          />
+  setUserId={setUserId}
+  setUserName={setUserName}
+/>
 
           <button
             className="back-login-button"
@@ -64,7 +66,11 @@ if (!isLoggedIn) {
   // DASHBOARD
 return (
   <div>
-    <Dashboard onLogout={handleLogout} />
+   <Dashboard
+  onLogout={handleLogout}
+  userId={userId}
+  userName={userName}
+/>
   </div>
 );
 }

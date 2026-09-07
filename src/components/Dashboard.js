@@ -9,7 +9,7 @@ import {
   FaChartLine
 } from "react-icons/fa";
 
-function Dashboard({ onLogout }) {
+function Dashboard({ onLogout, userId, userName }) {
   const [showChat, setShowChat] = useState(false);
   const [refreshRanking, setRefreshRanking] = useState(false);
 
@@ -56,11 +56,13 @@ function Dashboard({ onLogout }) {
 
         <div className="dashboard-grid">
 
-          <AddResume
-            onUploadSuccess={() =>
-              setRefreshRanking(prev => !prev)
-            }
-          />
+         <AddResume
+  userId={userId}
+  userName={userName}
+  onUploadSuccess={() =>
+    setRefreshRanking(prev => !prev)
+  }
+/>
 
         </div>
 
