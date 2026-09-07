@@ -14,7 +14,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/ranking")
-//@CrossOrigin(origins = "http://localhost:3000")
 public class RankingController {
 
     @Autowired

@@ -1,26 +1,32 @@
 package com.pratiksha.resume_service.controller;
 
-import com.pratiksha.resume_service.entity.Resume;
-import com.pratiksha.resume_service.util.SkillExtractor;
-import com.pratiksha.resume_service.repository.ResumeRepository;
-import com.pratiksha.resume_service.service.ResumeService;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import java.io.File;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
+import com.pratiksha.resume_service.entity.Resume;
+import com.pratiksha.resume_service.repository.ResumeRepository;
+import com.pratiksha.resume_service.service.ResumeService;
+import com.pratiksha.resume_service.util.SkillExtractor;
 
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/resumes")
 public class ResumeController {

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/jobs")
-@CrossOrigin(origins = "*")
 public class JobController {
 
     @Autowired
