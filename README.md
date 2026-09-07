@@ -1,70 +1,222 @@
-# Getting Started with Create React App
+```markdown
+# TalentLens AI  
+### Recruiter-Focused Resume Analysis and Candidate Ranking Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 📖 Project Overview
+TalentLens AI is a recruiter-focused resume analysis and candidate ranking platform built using **React** and **Spring Boot Microservices**.  
+It enables recruiters to create users, authenticate via JWT, upload resumes, extract text, analyze resumes, calculate ATS-style scores, rank candidates, and manage candidate information in a centralized dashboard.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Live Demo
+[TalentLens AI Application](https://resume-ranking-frontend-kohf.onrender.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📂 GitHub Repository
+[Smart AI Resume Analyzer](https://github.com/pratiksha-bawaskar/smart-ai-resume-analyzer)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
+- JWT authentication  
+- User creation & login  
+- Persistent user session  
+- PDF resume upload  
+- Resume text extraction using Apache PDFBox  
+- Resume analysis  
+- ATS-style scoring  
+- Candidate ranking  
+- Candidate search & filtering  
+- Candidate details view  
+- Candidate status management  
+- Report download  
+- API Gateway routing  
+- Eureka service discovery  
+- MySQL persistence  
+- Render deployment  
+- TalentLens Copilot UI  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Technology Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Frontend**
+- React.js  
+- JavaScript  
+- Axios  
+- CSS  
+- Framer Motion  
+- React Icons  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Backend**
+- Java  
+- Spring Boot  
+- Spring Boot Microservices  
+- Spring Cloud Eureka  
+- Spring Cloud API Gateway  
+- REST APIs  
+- JWT Authentication  
 
-### `npm run eject`
+**Database**
+- MySQL  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Resume Processing**
+- Apache PDFBox  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Deployment**
+- Render  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🏗 System Architecture
+```text
+                    React Frontend
+                          ↓
+                     API Gateway
+                          ↓
+          ┌───────────────┼───────────────┐
+          ↓               ↓               ↓
+     User Service    Resume Service   Ranking Service
+          │               │               │
+          └───────────────┼───────────────┘
+                          ↓
+                    MySQL Database
 
-## Learn More
+                    Eureka Server
+              (Service Registration /
+                 Service Discovery)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔄 Application Flow
 
-### Code Splitting
+Recruiter Login  
+        ↓  
+Upload Resume  
+        ↓  
+Resume Service  
+        ↓  
+PDF Text Extraction  
+        ↓  
+Resume Analysis  
+        ↓  
+ATS-style Score  
+        ↓  
+Candidate Ranking  
+        ↓  
+Candidate Details  
+        ↓  
+Recruiter Status Update  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🖼 Application Screenshots
+![Login](screenshots/login.jpeg)  
+![Create User](screenshots/Create_User.jpeg)  
+![Main Page](screenshots/Main_Page.jpeg)  
+![TalentLens Dashboard](screenshots/TalentLens_Dashboard.jpeg)  
+![TalentLens Copilot](screenshots/TalentLens_Copilot.jpeg)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📊 Candidate Analysis
+- Resumes are uploaded in PDF format.  
+- Apache PDFBox extracts text.  
+- Rule/keyword-based ATS-style scoring is applied.  
+- Candidates are ranked based on scores.  
+- Recruiters can filter, search, and update candidate statuses.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## ⚙️ Microservice Responsibilities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**User Service**
+- User registration  
+- User login  
+- JWT generation  
+- User management  
 
-### Deployment
+**Resume Service**
+- Resume upload  
+- PDF text extraction  
+- Resume analysis  
+- Score calculation  
+- Candidate information  
+- Candidate status management  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Ranking Service**
+- Candidate ranking  
+- Ranking reports  
+- Candidate ordering based on score  
 
-### `npm run build` fails to minify
+**API Gateway**
+- Centralized backend entry point  
+- Request routing to microservices  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Eureka**
+- Service registration  
+- Service discovery  
+- Dynamic service communication  
+
+---
+
+## 🔐 Authentication
+- JWT-based authentication  
+- Secure login flow  
+- Persistent user sessions stored in localStorage  
+
+---
+
+## 📄 Resume Processing
+- PDF resumes uploaded via frontend  
+- Apache PDFBox extracts text  
+- Rule-based ATS scoring applied  
+- Candidate details stored in MySQL  
+
+---
+
+## 📈 Ranking
+- Candidates ranked based on ATS-style scores  
+- Ranking Service provides ordered candidate lists  
+- Recruiters can view ranking reports  
+
+---
+
+## 🧪 Testing
+The application has been tested using:  
+- Local development environment  
+- REST API testing  
+- Postman  
+- Browser testing  
+- Cloud/deployment testing  
+
+---
+
+## ☁️ Deployment
+Deployed on **Render** with the following components:  
+- React frontend  
+- API Gateway  
+- User Service  
+- Resume Service  
+- Ranking Service  
+- Eureka Discovery Server  
+
+---
+
+## 🔮 Future Enhancements
+- Job Description based resume matching  
+- Job-specific candidate scoring  
+- Automatic candidate email notifications  
+- Advanced AI/ML-based resume analysis  
+- Recruiter analytics and hiring insights  
+- Role-based access control  
+
+---
+
+## 👩‍💻 Author
+**Pratiksha Bawaskar**  
+Java Full Stack Developer | Spring Boot | React | Microservices
+```
